@@ -6,29 +6,29 @@ namespace LeetCodeConsole
 {
     public class TreeNode
     {
-        public int Val;
-        public TreeNode Left;
-        public TreeNode Right;
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
 
-        public TreeNode(int x) => Val = x;
+        public TreeNode(int x) => val = x;
 
     }
     class _617MergeTwoBinaryTrees
     {
         public static TreeNode MergeTrees(TreeNode t1, TreeNode t2)
         {
-            TreeNode node = t1==null&&t2==null?null:new TreeNode((t1?.Val??0) + (t2?.Val??0));//优先级问题
+            TreeNode node = t1==null&&t2==null?null:new TreeNode((t1?.val??0) + (t2?.val??0));//优先级问题
             if (node==null)
             {
                 return null;
             }
-            if (t1?.Left!=null||t2?.Left!=null)
+            if (t1?.left!=null||t2?.left!=null)
             {
-                node.Left = MergeTrees(t1?.Left, t2?.Left);
+                node.left = MergeTrees(t1?.left, t2?.left);
             }
-            if (t1?.Right != null || t2?.Right != null)
+            if (t1?.right != null || t2?.right != null)
             {
-                node.Right = MergeTrees(t1?.Right, t2?.Right);
+                node.right = MergeTrees(t1?.right, t2?.right);
             }
 
             return node;
@@ -36,8 +36,8 @@ namespace LeetCodeConsole
 
         public static TreeNode TesTTreeNode()
         {
-            TreeNode t1 = new TreeNode(1) {Left = new TreeNode(3){Left = new TreeNode(5)}, Right = new TreeNode(2)};
-            TreeNode t2 =new TreeNode(2){Left = new TreeNode(1){Right = new TreeNode(4)},Right = new TreeNode(3){Right = new TreeNode(7)}};
+            TreeNode t1 = new TreeNode(1) {left = new TreeNode(3){left = new TreeNode(5)}, right = new TreeNode(2)};
+            TreeNode t2 =new TreeNode(2){left = new TreeNode(1){right = new TreeNode(4)},right = new TreeNode(3){right = new TreeNode(7)}};
             var result = MergeTrees(t1, t2);
             return result;
         }

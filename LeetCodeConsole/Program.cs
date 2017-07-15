@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 
 namespace LeetCodeConsole
 {
@@ -7,11 +10,11 @@ namespace LeetCodeConsole
         static void Main(string[] args)
         {
             //_617MergeTwoBinaryTrees.TesTTreeNode();
-            //TreeNode t1 = new TreeNode(1) { Left = new TreeNode(3) { Left = new TreeNode(5) }, Right = new TreeNode(2) };
-            //TreeNode t2 = new TreeNode(2) { Left = new TreeNode(1) { Right = new TreeNode(4) }, Right = new TreeNode(3) { Right = new TreeNode(7) } };
+            //TreeNode t1 = new TreeNode(1) { left = new TreeNode(3) { left = new TreeNode(5) }, right = new TreeNode(2) };
+            //TreeNode t2 = new TreeNode(2) { left = new TreeNode(1) { right = new TreeNode(4) }, right = new TreeNode(3) { right = new TreeNode(7) } };
 
-            //var r1 = t1?.Left?.Right?.Val??0;
-            //var r2 = t2?.Left?.Left?.Val??0;
+            //var r1 = t1?.left?.right?.val??0;
+            //var r2 = t2?.left?.left?.val??0;
 
             //var res= _561ArrayPartitionI.ArrayPairSum(new int[] {1, 4, 3, 2});
             //var s = Convert.ToString(1000, 2);
@@ -24,8 +27,49 @@ namespace LeetCodeConsole
 
             //var res1 = _566ReshapetheMatrix.MatrixReshape(new [,] {{ 1, 2 },{ 3, 4 }}, 1, 4);
             //var res2 = _566ReshapetheMatrix.MatrixReshape(new[,] { { 1, 2 }, { 3, 4 } }, 2, 4);
-            var str = _557ReverseWordsinaStringIII.ReverseWords("Let's take LeetCode contest");
+            //var str = _557ReverseWordsinaStringIII.ReverseWords("Let's take LeetCode contest");
+            //string read = File.ReadAllText(@"D:\Test\ReverseString.txt");
+            //Stopwatch stopwatch = Stopwatch.StartNew();
+            //var s=_344ReverseString.ReverseString(read);
+            //stopwatch.Stop();
+            ////Console.WriteLine(stopwatch.ElapsedMilliseconds.ToString());
 
+            //Console.ReadKey();
+            //IList<TreeNode> res = new List<TreeNode>();
+            //res.Add(null);
+            //res.Add(null);
+            //res.Add(null);
+            //res.Add(null);
+
+            //Queue<TreeNode> tree = new Queue<TreeNode>();
+            //tree.Enqueue(null);
+            //tree.Enqueue(null);
+            //tree.Enqueue(null);
+            //tree.Enqueue(null);
+            //tree.Enqueue(null);
+            //tree.Enqueue(null);
+            //_637AverageofLevelsinBinaryTree.AverageOfLevels(new TreeNode(3)
+            //{
+            //    left = new TreeNode(9),
+            //    right = new TreeNode(20) {left = new TreeNode(15), right = new TreeNode(7)}
+            //});
+
+            //_463IslandPerimeter.IslandPerimeter(new int[,]
+            //{
+            //    {0, 1, 0, 0},
+            //    {1, 1, 1, 0},
+            //    {0, 1, 0, 0},
+            //    {1, 1, 0, 0}
+            //});
+            //Console.WriteLine(1000^1000);
+            //Console.ReadKey();
+            _104MaximumDepthofBinaryTree.MaxDepth(new TreeNode(1)
+            {
+                left = new TreeNode(2)
+                {
+                    left = new TreeNode(3) {left = new TreeNode(4) {right = new TreeNode(5) {right = new TreeNode(6)}}}
+                }
+            });
         }
-}
+    }
 }
