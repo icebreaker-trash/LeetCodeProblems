@@ -9,6 +9,16 @@ namespace LeetCodeConsole
     {
         static void Main(string[] args)
         {
+            sbyte a = -128;
+            sbyte n = 127;
+            sbyte b = -1;
+            sbyte c = +0;
+            sbyte d = -0;
+            var s = Convert.ToString(a, 2);
+            var s1 = Convert.ToString(n, 2);
+            var s2 = Convert.ToString(b, 2);
+            var s3 = Convert.ToString(c, 2);
+            var s4 = Convert.ToString(d, 2);
             //_617MergeTwoBinaryTrees.TesTTreeNode();
             //TreeNode t1 = new TreeNode(1) { left = new TreeNode(3) { left = new TreeNode(5) }, right = new TreeNode(2) };
             //TreeNode t2 = new TreeNode(2) { left = new TreeNode(1) { right = new TreeNode(4) }, right = new TreeNode(3) { right = new TreeNode(7) } };
@@ -63,13 +73,14 @@ namespace LeetCodeConsole
             //});
             //Console.WriteLine(1000^1000);
             //Console.ReadKey();
-            _104MaximumDepthofBinaryTree.MaxDepth(new TreeNode(1)
-            {
-                left = new TreeNode(2)
-                {
-                    left = new TreeNode(3) {left = new TreeNode(4) {right = new TreeNode(5) {right = new TreeNode(6)}}}
-                }
-            });
+            //_104MaximumDepthofBinaryTree.MaxDepth(new TreeNode(1)
+            //{
+            //    left = new TreeNode(2)
+            //    {
+            //        left = new TreeNode(3) {left = new TreeNode(4) {right = new TreeNode(5) {right = new TreeNode(6)}}}
+            //    }
+            //});
+            Console.ReadKey();
         }
     }
 }

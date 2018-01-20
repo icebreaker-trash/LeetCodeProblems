@@ -22,6 +22,7 @@ namespace LeetCodeConsole
                     sb.Append(((Match)Enum.Current).Value);
                 }
             }
+            IList<string> skb = new List<string>();
             return sb.ToString();
         }
 

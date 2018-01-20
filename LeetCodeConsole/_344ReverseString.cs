@@ -30,5 +30,34 @@ namespace LeetCodeConsole
             Array.Reverse(rev);
             return new string(rev);
         }
+
+        public static string ReverseString4(string s)
+        {
+            int i = 0, j = s.Length-1;
+            var chararr = s.ToCharArray();
+            while (i<j)
+            {
+                var tmp = chararr[j];
+                chararr[j] = chararr[i];
+                chararr[i] = tmp;
+                i++;
+                j--;
+            }
+            return new string(chararr);
+        }
+
+        public static string ReverseString5(string s)
+        {
+            
+            var chararr = s.ToCharArray();
+            for (int i = 0; i < s.Length/2; i++)
+            {
+                var tmp = chararr[i];
+                chararr[i] = chararr[s.Length-1-i];
+                chararr[s.Length - 1 - i] = tmp;
+            }
+            
+            return new string(chararr);
+        }
     }
 }
