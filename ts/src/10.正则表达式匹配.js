@@ -33,25 +33,111 @@ const getMinMatchCount = (regexp) => {
   return l - mulCount * 2
 }
 /**
+ * @param {string} str
+ */
+function checkFormatValid(str) {
+  const l = str.length
+  for (let i = 0; i < l; i++) {
+    if (str[i] === '*') {
+      if (i + 1 < l && str[i + 1] === '*') {
+        return false
+      }
+    }
+  }
+  return true
+}
+class Compiler {
+  /**
+   * @param {String} str
+   */
+  constructor(str) {
+    this.orginStr = str
+    this.minMatchCount = getMinMatchCount(str)
+    const checkList = []
+
+    for (let i = 0; i < str.length; i++) {
+      const flag = checkNextisMul(i, str)
+      let j = i + 1
+      if (flag) {
+        j = i + 2
+      }
+      checkList.push({
+        hasMul: flag,
+        reg: str.substring(i, j)
+      })
+      if (flag) {
+        i++
+      }
+    }
+    this.checkList = checkList
+
+
+  }
+  /**
+   * @param {string} target
+   */
+  test(target) {
+    const rl = this.checkList.length
+    const tl = target.length
+
+    let tidx = 0
+    let result = false
+    while (tidx < tl) {
+      let ridx = 0
+      let nextIdx = tidx
+      while (ridx < rl) {
+        const regO = this.checkList[ridx]
+        if (this.check(target(nextIdx), regO)) {
+          if (regO.hasMul) {
+            ridx++
+          } else {
+            nextIdx++
+            ridx++
+          }
+
+        }
+      }
+
+      tidx++
+    }
+    return false
+    //this.test()
+  }
+  /**
+   * @typedef {Object} RegChar
+   * @property {Boolean} hasMul
+   * @property {string} reg
+   * @param {string} char
+   * @param {RegChar} regChar
+   * 
+   */
+  check(char, regChar) {
+    if (regChar.hasMul) {
+      return true
+    }
+    let regText = regChar.reg
+    if (regText[0] === char || regText[0] === '.') {
+      return true
+    } else {
+      return false
+    }
+  }
+}
+
+/**
  * @param {string} s
  * @param {string} p
  * @return {boolean}
  */
 var isMatch = function (s, p) {
-  let result = false
-  let si = 0
-  let p1 = 0
-  for (let i = 0; i < s.length; i++) {
-    for (let pi = 0; pi < p.length; pi++) {
-      if (p[pi] === '.') {
-        if (checkNextisMul(pi, s)) {
-        } else {
-        }
-      }
-    }
-  }
-
-  return result
+  const compiler = new Compiler(p)
+  compiler.test(s)
+  console.log(compiler)
+  //return result
 }
 
+isMatch('aa', 'a') //false
+// isMatch('ab', '.*') //true
+// isMatch('aab', 'c*a*b') //true
+// isMatch('mississippi', 'mis*is*p*.') //false
 // @lc code=end

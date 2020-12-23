@@ -6,7 +6,7 @@ const fs = require("fs");
  */
 function execute(order) {
   const dir = fs.readdirSync("./src");
-  const str = dir.find((x) => x[0] === order.toString());
+  const str = dir.find((x) => x.startsWith(order.toString()));
   require(`./src/${str}`);
 }
-execute(5);
+execute(10);
